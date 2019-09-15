@@ -28,7 +28,7 @@ function productPost() {
         console.log("********BAMAZON************");
         console.log("-----------------------");
         for (var i = 0; i < res.length; i++) { //prints out all the items for mysql
-            console.log('Item Number: ' + res[i].item_id + '\nName: ' + res[i].itemName + '\nDepartment: ' + res[i].department_name + '\nPrice: $' + res[i].price + '\nQuantity: ' + res[i].stock_quantity + '\n----------------------------------------')
+            console.log('Item Number: ' + res[i].item_id + '\nName: ' + res[i].product_name + '\nDepartment: ' + res[i].department_name + '\nPrice: $' + res[i].price + '\nQuantity: ' + res[i].stock_quantity + '\n----------------------------------------')
 
         };
         selectItem();
@@ -52,7 +52,7 @@ function selectItem() { //inquirer
             for (var i = 0; i < res.length; i++) {
                 var numQuan = parseInt(itemPicked.itemQuan);
                 var total = itemPicked.itemQuan * res[i].price;
-                var itemName = res[i].itemName;
+                var itemName = res[i].product_name;
                 var itemUpdate = res[i].stock_quantity - numQuan;
                 if (numQuan > res[i].stock_quantity) {//will print out if not enough in stock
                     console.log("Insufficient quantity!");
@@ -61,7 +61,7 @@ function selectItem() { //inquirer
 
                     console.log("Item chosen: " + itemName);
                     sqlUpdate(itemPicked.itemNum, itemUpdate);
-                    console.log("There is " + itemUpdate + " " + itemName + " left");
+                    console.log("There is " + itemUpdate + " " + itemName+ " left");
                 }
 
                 function sqlUpdate(target_item, itemUpdate) {
