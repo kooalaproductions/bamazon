@@ -1,5 +1,5 @@
 # bamazon
-Liri Bot will help users find concert, song and movie information. 
+
 ## Installation
 Will need to run npm installations 
 1. Will need to install mysql and inquirer
